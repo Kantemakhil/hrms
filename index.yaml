@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  vrnda-hrms:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-01-06T11:13:36.622177604+05:30"
+    dependencies:
+    - name: vrnda-mysql-db
+      repository: file:///root/helm/mysql/vrnda-mysql-db
+      version: 0.1.0
+    description: A Product Developed by Vrnda Software Technologies Pvt Ltd which
+      is Human Resource Management System.
+    digest: 579c7e09b636a854a07cbc825bea7e4b88af852350bad43d719c115b42c68786
+    name: vrnda-hrms
+    type: application
+    urls:
+    - https://kantemakhil.github.io/hrms/vrnda-hrms-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-01-06T11:13:36.621312076+05:30"
