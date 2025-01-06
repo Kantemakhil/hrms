@@ -1,0 +1,68 @@
+# custom valuesfor vrnda-hrms.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 3
+
+image: akhilkantem/hrms:4.0
+
+imagePullSecrets:
+ - name: docker-hub
+
+db_host: vrnda-hrms-web-app-mysql
+
+port: "3306"
+
+db_name: "HRMS_PRE_PROD"
+
+db_username: "hrmspreprod"
+
+db_password: "Vrnd@_Hrm$"
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 32767
+
+
+podLabels:
+  environment: production
+  app: vrnda-hrms
+  tier: backend
+
+serviceAccount:
+  create: true
+  name: ""
+
+vrnda-mysql-db:
+  replicaCount: 1
+
+  image: akhilkantem/vrnda_hrms_mysql_db:1.0 
+  pullPolicy: IfNotPresent
+
+  mysql:
+    rootPassword: admin123
+
+  service:
+    type: NodePort
+    port: 3306
+    nodePort: 32600
+
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: ""
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  serviceAccount:
+    create: true
+    name: ""
+
